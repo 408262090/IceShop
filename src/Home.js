@@ -1,20 +1,13 @@
 import { useState,useEffect} from 'react';
 import ItemList from './ItemList';
 import Cart from'./Cart';
-
-
+import useFetch from './useFetch';
 
 const Home = () => {
 
-    const [items,setItems] = useState ([
-        {name:'愛的就是檸', price: 300 , id:1},
-        {name:'不要不梨我', price: 310 , id:2},
-        {name:'草夠了莓', price: 320 , id:3}
-    ]);
-
     const[total,setTotal] = useState(0);
-    
     const[cart,setCart ] = useState([]);
+    const{data:items , error } = useFetch('http://localhost:8000/items')
 
     const handleClick= (name, price,id) => {
         const newItem = items.find(item => item.id === id); 
@@ -34,16 +27,13 @@ const Home = () => {
         setTotal(updatedTotal); 
     }
 
-    useEffect(()=>{
-        console.log('use effect ran');
-        console.log(items);
-    },[]);
-
     return (
         <div className="Home">
             <h2>Menu</h2>
-            <ItemList items={ items } handleClick={handleClick}/>
-            <aside> 
+            {error &&<div>{ error }</div>}
+            {items && <ItemList items={ items } handleClick={handleClick}/>}
+
+            {/* <aside> 
                 <h2>購物車</h2>
                 <div className="item-list"></div>
                     {cart.map(item => (
@@ -55,7 +45,7 @@ const Home = () => {
                     ))}
                 <div/>
                 <p id="total">總價:{ total }元</p> 
-            </aside> 
+            </aside>  */}
         </div>
       );
 }
