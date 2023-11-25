@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import ItemList from './ItemList';
+import Cart from'./Cart';
+
 
 
 const Home = () => {
@@ -16,25 +18,39 @@ const Home = () => {
 
     const handleClick= (name, price,id) => {
         const newItem = items.find(item => item.id === id); 
-       
        if (newItem) {
          const updatedCart = [...cart, newItem]; // 將新商品追加到現有的購物車中
          setCart(updatedCart); // 更新購物車狀態
          setTotal(prevTotal => prevTotal + price); // 更新總金額
         }
+        <Cart cart={cart} total={total}/>
     }
+    const handledelete=(name, price,id)=>{
+        const updatedCart = [...cart];
+        const lastItemPrice = updatedCart[updatedCart.length - 1].price;
+        const updatedTotal = total - lastItemPrice;
+        updatedCart.pop(); 
+        setCart(updatedCart);
+        setTotal(updatedTotal); 
+    }
+
+    useEffect(()=>{
+        console.log('use effect ran');
+        console.log(items);
+    },[]);
 
     return (
         <div className="Home">
             <h2>Menu</h2>
             <ItemList items={ items } handleClick={handleClick}/>
             <aside> 
-                <h2>購物車</h2> 
+                <h2>購物車</h2>
                 <div className="item-list"></div>
                     {cart.map(item => (
-                        <div className='menu-item' key={item.id}>
+                        <div className='cart-item' key={item.id}>
                             <h3>{item.name}</h3>
                             <h3>{item.price}</h3>
+                            <button onClick={ () => handledelete( item.name ,item.price,item.id) } >刪除</button> 
                         </div>
                     ))}
                 <div/>
