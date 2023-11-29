@@ -1,18 +1,45 @@
+import { useHistory } from "react-router-dom";
+
 const Check = () => {
-    return ( 
+  const history = useHistory();
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    history.push('/success');
+  }
+
+  return ( 
         <div className="Check">
             <h1>付款資訊</h1>
-            <form>
-                <label>帳號</label>
+            <form onSubmit={handleSubmit}>
+                <label>持卡人姓名</label>
                 <input
                   type ="text"
-                  required
+      
                 />
-                <label>密碼</label>
+                <label>卡號</label>
                 <input
                   type ="text"
-                  required
+                  
                 />
+                <label>檢查碼</label>
+                <input
+                  type ="text"
+                  
+                />
+                <label>有效期限</label>
+                <div className="period">
+                  <label>月</label>
+                  <input
+                    type ="text"
+                  
+                  />
+                  <label>年</label>
+                  <input
+                    type ="text"
+              
+                  /> 
+                </div>
                 <button>確認</button>
             </form>
         </div>

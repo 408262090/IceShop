@@ -93,3 +93,7 @@ aside {
 .cart-item a{
   text-decoration: none;
 }
+.period{
+  display: flex;
+  align-items: center; 
+}

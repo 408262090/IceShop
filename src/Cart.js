@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import useFetch from './useFetch';
 import { Link } from "react-router-dom"
+import Check from './Check';
 
 const Cart = () => {
     
