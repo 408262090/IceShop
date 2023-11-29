@@ -34,23 +34,62 @@
   padding: 20px;
 }
 
+.item-list
+{
+  display: flex;
+}
 .menu-item { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  margin: 10px; 
+  } 
+
+.menu-item img {
+  margin-bottom: 10px; /* 图片底部留有空隙 */
+}
+.cart-item { 
   display: flex;
   justify-content: space-between;
   border: 1px solid #ccc; 
   padding: 10px; 
   margin: 10px; 
   } 
-  .cart-item { 
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #ccc; 
-    padding: 10px; 
-    margin: 10px; 
-    } 
 
 aside { 
     flex: 1; 
     padding: 20px; 
     border: 1px solid #ccc; 
 } 
+
+.Check {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.Check input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.cart-item {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.cart-item:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.cart-item h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.cart-item a{
+  text-decoration: none;
+}

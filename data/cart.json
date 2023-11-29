@@ -1,0 +1,16 @@
+{
+  "cart-items": [
+    {
+      "name": "草夠了莓",
+      "price": 320,
+      "imageURL": "https://i.imgur.com/URBKH1h.png?1",
+      "id": 1
+    },
+    {
+      "name": "巧克愛攪和",
+      "price": 310,
+      "imageURL": "https://i.imgur.com/5JJryft.png?1",
+      "id": 2
+    }
+  ]
+}

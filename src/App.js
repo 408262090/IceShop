@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Check from './Check';
 import Cart from './Cart';
+import ItemDetails from './ItemDetail';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path='/checkout'>
               <Check/>
+            </Route>
+            <Route path='/items/:id'>
+              <ItemDetails/>
             </Route>
           </Switch>
         </div>
