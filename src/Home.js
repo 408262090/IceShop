@@ -5,12 +5,12 @@ import useFetch from './useFetch';
 
 const Home = () => {
     
-    const{data:items , error } = useFetch('http://localhost:8000/items')
+    const{data:items , error } = useFetch('https://icestore1130.s3.ap-southeast-2.amazonaws.com/db.json')
 
 
     const handleClick = (name, price,imageURL)=>{
         const data = { name, price,imageURL};
-            fetch('http://localhost:8001/cart-items',{
+            fetch('https://icestore1130.s3.ap-southeast-2.amazonaws.com/cart.json',{
             method:'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(data)
