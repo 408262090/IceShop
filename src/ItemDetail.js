@@ -4,7 +4,8 @@ import useFetch from './useFetch';
 const ItemDetails = () => {
 
     const{ id } = useParams()
-    const{data:item , error } = useFetch('http://localhost:8001/cart-items/' + id);
+    const apiUrl = new URL('http://localhost:8001/cart-items/' + id);
+    const { data: item, error } = useFetch(apiUrl.toString());
     
     return ( 
         <div className="item-details">
